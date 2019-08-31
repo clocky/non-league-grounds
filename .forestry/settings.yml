@@ -5,7 +5,7 @@ admin_path:
 webhook_url: 
 sections:
 - type: directory
-  path: club
+  path: src/club
   label: Clubs
   create: documents
   match: "**/*"
