@@ -1,6 +1,6 @@
 ---
 layout: club.njk
-league: national-league
+league: National League
 orgname: Boreham Wood
 orgunit: Meadow Park
 locality: Borehamwood
