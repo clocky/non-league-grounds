@@ -1,0 +1,31 @@
+---
+label: Club
+hide_body: true
+fields:
+- type: text
+  name: layout
+  label: layout
+- type: text
+  name: league
+  label: league
+- type: text
+  name: orgname
+  label: orgname
+- type: text
+  name: orgunit
+  label: orgunit
+- type: text
+  name: locality
+  label: locality
+- type: text
+  name: region
+  label: region
+- type: text
+  name: postalcode
+  label: postalcode
+- type: list
+  name: geo
+  label: geo
+- type: list
+  name: tags
+  label: tags
