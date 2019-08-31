@@ -14,8 +14,8 @@ map:
                     {% for breakpoint in [1200, 992, 768, 576] %}
                         {% set height = (breakpoint / 27) * 9 %}
                         <source 
-                            srcset="{{map.api}}{{geo}}/{{map.zoom}}?mapSize={{breakpoint}},{{height | round}}&format={{map.format}}&key={{bing.api}}" 
-                            media="(min-width: {{breakpoint}}px)">
+                            srcset="{{ map.api }}{{ geo[0] | trim }},{{ geo[1] | trim }}/{{ map.zoom }}?mapSize={{ breakpoint }},{{ height | round }}&format={{ map.format }}&key={{ bing.api }}" 
+                            media="(min-width: {{ breakpoint }}px)">
                     {% endfor %}
                     <img 
                         class="img-fluid w-100"
