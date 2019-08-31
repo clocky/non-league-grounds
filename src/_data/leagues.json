@@ -10,5 +10,11 @@
         "name": "National League South",
         "level": 6,
         "sponsor": "Vanarama"
+    },
+    {
+        "id": 3,
+        "name": "National League North",
+        "level": 6,
+        "sponsor": "Vanarama"
     }
 ]
