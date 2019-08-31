@@ -4,8 +4,8 @@
   "description": "A directory of non-league grounds in the United Kingdom",
   "main": "index.js",
   "scripts": {
-    "serve": "eleventy --serve",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "forestry:preview": "eleventy --serve --port 8080 --output=dist",
+    "serve": "eleventy --serve"
   },
   "repository": {
     "type": "git",
