@@ -6,12 +6,19 @@ fields:
 - type: text
   name: layout
   label: layout
+  default: club.njk
+  config:
+    required: true
 - type: text
   name: league
   label: league
+  config:
+    required: true
 - type: text
   name: orgname
   label: orgname
+  config:
+    required: true
 - type: text
   name: orgunit
   label: orgunit
