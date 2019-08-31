@@ -46,4 +46,5 @@ fields:
   name: tags
   label: tags
 pages:
+- src/club/bromley.md
 - src/club/boreham-wood.md
