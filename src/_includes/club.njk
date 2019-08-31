@@ -1,17 +1,27 @@
 ---
 layout: base.njk
 map:
-    width: 1440
-    height: 320
+    width: 576
+    height: 247
     format: png
+    zoom: 17
+    api: https://dev.virtualearth.net/REST/V1/Imagery/Map/Aerial/
 ---
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col">
-                <img width="{{map.width}}" height="{{map.height}}"
-                    class="img-fluid"
-                    src="https://dev.virtualearth.net/REST/V1/Imagery/Map/Aerial/{{ geo }}/17?mapSize={{map.width}},{{map.height}}&format={{format}}&key={{bing.api}}" 
-                    alt="Bing Map of {{ geo }}">
+                <picture>
+                    {% for breakpoint in [1200, 992, 768, 576] %}
+                        {% set height = (breakpoint / 21) * 9 %}
+                        <source 
+                            srcset="{{map.api}}{{geo}}/{{map.zoom}}?mapSize={{breakpoint}},{{height | round}}&format={{map.format}}&key={{bing.api}}" 
+                            media="(min-width: {{breakpoint}}px)">
+                    {% endfor %}
+                    <img 
+                        class="img-fluid"
+                        src="{{ map.api }}{{ geo }}/{{ map.zoom }}?mapSize={{ map.width }},{{ map.height }}&format={{format}}&key={{bing.api}}" 
+                        alt="Bing Map of {{ geo }}">
+                </picture>
             </div>
         </div>
     </div>
