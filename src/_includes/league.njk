@@ -2,9 +2,11 @@
 layout: base.njk
 ---
 <div class="container">
+    <div class="jumbotron">
+        <h1>{{ sponsor }} {{ title }}</h1>
+    </div>
     <div class="row">
         <div class="col">
-            <h1>{{ sponsor }} {{ title }}</h1>
             {% set league = title | slug %}
             <ul>
             {% for club in collections[league]   %}
