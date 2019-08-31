@@ -1,6 +1,6 @@
 ---
 layout: club.njk
-league: national-league
+league: National League
 orgname: Bromley
 orgunit: Hayes Lane
 streetname: ''
