@@ -1,0 +1,46 @@
+---
+layout: base.njk
+map:
+    width: 1440
+    height: 320
+    format: png
+---
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <img width="{{map.width}}" height="{{map.height}}"
+                    class="img-fluid"
+                    src="https://dev.virtualearth.net/REST/V1/Imagery/Map/Aerial/{{ geo }}/17?mapSize={{map.width}},{{map.height}}&format={{format}}&key={{bing.api}}" 
+                    alt="Bing Map of {{ geo }}">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col offset-3">
+                <h2>{{ orgname }}</h2>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-3">
+                <address class="text-secondary">
+                    <strong>{{ orgname }}</strong><br />
+                    {{ orgunit }}<br />
+                    {{ locality | upper }}<br />
+                    {{ region }}<br />
+                    {{ postalcode | upper }}
+                </address>
+            </div>
+            <div class="col-9">
+                <p class="lead">
+                    {{ orgname }} are a non-league football team who play at 
+                    {{ orgunit }} in {{ locality }}, 
+                    <a href="/region/{{region | slug}}">{{ region }}</a>.</p>
+                <p>
+                    In 2019/20 the club are playing in the 
+                        <a href="/league/{{ league | slug }}">{{ league }}</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+

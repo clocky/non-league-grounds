@@ -1,0 +1,18 @@
+---
+layout: base.njk
+---
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>{{ sponsor }} {{ title }}</h1>
+            {% set league = title | slug %}
+            <ul>
+            {% for club in collections[league]   %}
+                <li><a href="/club/{{ club.data.orgname | slug }}">{{ club.data.orgname }}</a></li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,19 @@
+---
+layout: base.njk
+---
+<div class="row">
+    <div class="col">
+        <h1>{{ title }}</h1>
+        {% set region = title | slug %}
+        <ul>
+        {% for club in collections[region]   %}
+            <li>
+                <a href="/club/{{ club.data.orgname | slug }}">{{ club.data.orgname }}</a><br/>
+                <span class="text-secondary">{{ club.data.orgunit }}</span>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+
+

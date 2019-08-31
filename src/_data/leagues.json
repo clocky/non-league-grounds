@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "name": "National League",
+        "level": 5,
+        "sponsor": "Vanarama"
+    },
+    {
+        "id": 2,
+        "name": "National League South",
+        "level": 6,
+        "sponsor": "Vanarama"
+    }
+]

@@ -1,0 +1,29 @@
+{
+  "name": "nonleaguegrounds",
+  "version": "1.0.0",
+  "description": "A directory of non-league grounds in the United Kingdom",
+  "main": "index.js",
+  "scripts": {
+    "serve": "eleventy --serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clocky/nonleaguegrounds.git"
+  },
+  "keywords": [
+    "11ty"
+  ],
+  "author": "Mark McLaughlin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clocky/nonleaguegrounds/issues"
+  },
+  "homepage": "https://github.com/clocky/nonleaguegrounds#readme",
+  "devDependencies": {
+    "eleventy": "^0.2.0"
+  },
+  "dependencies": {
+    "dotenv": "^8.1.0"
+  }
+}
