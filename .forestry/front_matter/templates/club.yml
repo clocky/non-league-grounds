@@ -16,24 +16,27 @@ fields:
     required: true
 - type: text
   name: orgname
-  label: orgname
+  label: Club
   config:
     required: true
 - type: text
   name: orgunit
-  label: orgunit
+  label: Stadium
 - type: text
   name: locality
-  label: locality
+  label: Town/City
 - type: text
   name: region
-  label: region
+  label: County
 - type: text
   name: postalcode
-  label: postalcode
+  label: Postcode
 - type: list
   name: geo
   label: geo
+  description: Latitude & Longitude
+  config:
+    use_select: false
 - type: list
   name: tags
   label: tags
