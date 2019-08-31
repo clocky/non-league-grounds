@@ -35,7 +35,9 @@ map:
             <div class="col-3 text-right">
                 <address class="text-secondary">
                     {{ orgunit }}<br />
+                    {% if locality %}
                     {{ locality | upper }}<br />
+                    {% endif %}
                     {{ region }}<br />
                     {{ postalcode | upper }}
                 </address>
@@ -43,8 +45,10 @@ map:
             <div class="col-9">
                 <p class="lead">
                     {{ orgname }} are a non-league football team who play at 
-                    {{ orgunit }} in {{ locality }}, 
-                    <a href="/region/{{region | slug}}">{{ region }}</a>.</p>
+                    {{ orgunit }}
+                    {% if region %}
+                    , <a href="/region/{{region | slug}}">{{ region }}</a>
+                    {% endif %}.</p>
                 <p>
                     In 2019/20 the club are playing in the 
                         <a href="/league/{{ league | slug }}">{{ league }}</a>.
