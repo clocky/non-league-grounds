@@ -9,7 +9,7 @@ layout: base.njk
         <div class="col">
             {% set league = title | slug %}
             <ul>
-            {% for club in collections[league]   %}
+            {% for club in collections[league] | reverse %}
                 <li><a href="/club/{{ club.data.orgname | slug }}">{{ club.data.orgname }}</a></li>
             {% endfor %}
             </ul>
