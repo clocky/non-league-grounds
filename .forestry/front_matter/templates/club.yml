@@ -1,6 +1,7 @@
 ---
 label: Club
 hide_body: true
+display_field: orgname
 fields:
 - type: text
   name: layout
