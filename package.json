@@ -20,10 +20,8 @@
     "url": "https://github.com/clocky/nonleaguegrounds/issues"
   },
   "homepage": "https://github.com/clocky/nonleaguegrounds#readme",
-  "devDependencies": {
-    "eleventy": "^0.2.0"
-  },
   "dependencies": {
+    "eleventy": "^0.2.0",
     "dotenv": "^8.1.0",
     "pretty": "^2.0.0"
   }
