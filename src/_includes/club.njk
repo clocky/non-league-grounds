@@ -26,7 +26,7 @@ map:
                     {% endfor %}
                     <img 
                         class="img-fluid w-100"
-                        src="{{ map.api }}{{ geo[0] | string | trim }},{{ geo[1] | string | trim }}/{{ map.zoom }}?mapSize={{ map.width }},{{ map.height }}&format={{format}}&key={{bing.api}}" 
+                        src="{{ map.api }}/{{ geo[0] | string | trim }},{{ geo[1] | string | trim }}/{{ map.zoom }}?mapSize={{ map.width }},{{ map.height }}&format={{format}}&key={{bing.api}}" 
                         alt="Bing Map of {{ orgunit }}">
                 </picture>
             </div>
