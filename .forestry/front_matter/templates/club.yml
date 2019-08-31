@@ -22,6 +22,11 @@ fields:
 - type: text
   name: orgunit
   label: Stadium
+- name: streetname
+  type: text
+  config:
+    required: false
+  label: Street
 - type: text
   name: locality
   label: Town/City
