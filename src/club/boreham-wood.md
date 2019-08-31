@@ -6,7 +6,9 @@ orgunit: Meadow Park
 locality: Borehamwood
 region: Hertfordshire
 postalcode: WD6 5AL
-geo: []
+geo:
+- '51.661935'
+- " -0.272376"
 tags:
 - hertfordshire
 - club
