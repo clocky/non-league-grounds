@@ -1,0 +1,71 @@
+---
+layout: base.njk
+map:
+    width: 576
+    height: 247
+    format: jpeg
+    zoom: 17
+    api: https://dev.virtualearth.net/REST/V1/Imagery/Map/Aerial
+pagination:
+  data: clubs
+  size: 1
+  alias: club
+permalink: club/{{ club.orgname | slug }}/index.html
+---
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col p-0">
+                <picture>
+                    {% set format = 'format=' + map.format %}
+                    {% set key = 'key=' + bing.api %}
+                    {% set location = club.stadium.geo.latitude + ',' + club.stadium.geo.longitude %}
+                    {% for breakpoint in [1200, 992, 768, 576] %}
+                        {% set height = (breakpoint / 27) * 9 %}
+                        {% set mapSize = 'mapSize=' + breakpoint + ',' + height | round %}
+                        {%- set url -%}{{ map.api }}/{{location}}/{{map.zoom}}/?{{mapSize}}&{{format}}&{{key}}{%- endset -%}
+                        <source 
+                            srcset="{{url}}" 
+                            media="(min-width: {{ breakpoint }}px)">
+                    {% endfor %}
+                    <img 
+                        class="img-fluid w-100"
+                        src="{{ map.api }}/{{location}}/{{ map.zoom }}?mapSize={{ map.width }},{{ map.height }}&{{format}}&{{key}}" 
+                        alt="Bing Map of {{ club.stadium.orgunit }}">
+                </picture>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-8 bg-white">
+                <h1>{{ club.orgname }}</h1>
+            </div>
+        </div>
+        <div class="row mt-2 bg-white">
+            <div class="col-8">
+                <p class="lead">
+                    {{ club.orgname }} are a non-league football team who play at 
+                    {{ club.stadium.orgunit }}
+                    {%- if club.stadium.region -%}
+                    , <a href="/region/{{club.stadium.region | slug}}">{{ club.stadium.region }}</a>
+                    {%- endif %}.</p>
+                <p>
+                    In 2019/20 the club are playing in the 
+                        <a href="/league/{{ club.league.name | slug }}">{{ club.league.name }}</a>.
+                </p>
+            </div>
+            <div class="col-4 text-left">
+                <address class="text-secondary">
+                    {{ club.stadium.orgunit }}<br />
+                    {% if club.stadium.locality %}
+                        {{ club.stadium.locality | upper }}<br />
+                    {% endif %}
+                    {{ club.stadium.region }}<br />
+                    {% if club.stadium.postalcode %}
+                        {{club.stadium.postalcode | upper }}
+                    {% endif %}
+                </address>
+            </div>
+        </div>
+    </div>
