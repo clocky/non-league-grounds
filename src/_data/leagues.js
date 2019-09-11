@@ -29,6 +29,10 @@ async function getAllLeagues() {
             id
             name
             sponsor
+            division {
+              id
+              name
+            }
           }
         }`
       })
