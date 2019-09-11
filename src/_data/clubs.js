@@ -32,8 +32,14 @@ async function getAllClubs() {
                 longitude
               }
             }
-            league {
+            division {
+              id
               name
+              level
+              league {
+                id
+                name
+              }
             }
           }
         }`
