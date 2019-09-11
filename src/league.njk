@@ -6,13 +6,19 @@ pagination:
   alias: league
 permalink: league/{{ league.name | slug }}/index.html
 ---
-<div class="container">
-    <div class="jumbotron">
-        <h1>{{ league.sponsor }} {{ league.name }}</h1>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="h4 text-secondary">{{ league.sponsor}}</h1>
+        <h2 class="display-4">{{ league.name }}</h2>
+        <p>The {{ league.sponsor}} {{ league.name }} is an English football league with {{ league.division.length }} divisions.</p>
     </div>
+</div>
+<div class="container">
     <div class="row">
-        <div class="col">
-
+        {% for division in league.division %}
+        <div class="col-lg-6">
+            <h3 class="h5"><a href="/league/{{league.name | slug}}/{{ division.name | slug}}">{{ division.name }}</a></h3>
         </div>
+        {% endfor %}
     </div>
 </div>
