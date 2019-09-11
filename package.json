@@ -4,7 +4,8 @@
   "description": "A directory of non-league grounds in the United Kingdom",
   "main": "index.js",
   "scripts": {
-    "serve": "eleventy --serve"
+    "serve": "eleventy --serve --watch",
+    "build": "eleventy"
   },
   "repository": {
     "type": "git",
