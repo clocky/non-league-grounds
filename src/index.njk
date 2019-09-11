@@ -8,22 +8,23 @@ map:
     zoom: 18
     api: https://dev.virtualearth.net/REST/V1/Imagery/Map/Aerial/
 ---
+
 <div class="container mt-4">
     <div class="row">
-        {% for club in collections.club | reverse %}
+        {% for club in clubs %}
             <div class="col-lg-4 mb-4">
                 <div class="card">
                         <img class="card-img-top"
-                            src="{{ map.api }}{{ club.data.geo }}/{{ map.zoom }}?mapSize={{ map.width }},{{ map.height }}&format={{format}}&key={{bing.api}}" 
+                            src="{{ map.api }}{{ club.stadium.geo.latitude }},{{ club.stadium.geo.longitude }}/{{ map.zoom }}?mapSize={{ map.width }},{{ map.height }}&format={{format}}&key={{bing.api}}" 
                         />
                     <div class="card-body">
                         <h5 class="card-title">
-                            {{ club.data.orgname }}
+                            {{ club.orgname }}
                         </h5>
                         <p class="card-text text-secondary">
-                            {{ club.data.orgunit }}
+                            {{ club.stadium.orgunit }}
                         </p>
-                        <a href="/club/{{ club.data.orgname | slug }}" class="btn btn-primary">Open</a>
+                        <a href="/club/{{ club.orgname | slug }}" class="btn btn-primary">Open</a>
                     </div>
                 </div>
             </div>
