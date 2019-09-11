@@ -4,7 +4,6 @@
   "description": "A directory of non-league grounds in the United Kingdom",
   "main": "index.js",
   "scripts": {
-    "forestry:preview": "eleventy --serve --port 8080 --output=dist",
     "serve": "eleventy --serve"
   },
   "repository": {
