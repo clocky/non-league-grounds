@@ -46,13 +46,15 @@ permalink: club/{{ club.orgname | slug }}/index.html
             <div class="col-8">
                 <p class="lead">
                     {{ club.orgname }} are a non-league football team who play at 
-                    {{ club.stadium.orgunit }}
-                    {%- if club.stadium.region -%}
-                    , <a href="/region/{{club.stadium.region | slug}}">{{ club.stadium.region }}</a>
-                    {%- endif %}.</p>
+                    <strong>{{ club.stadium.orgunit }}</strong>
+                    in {{ club.stadium.locality }}
+                    {%- if club.stadium.region -%}, {{ club.stadium.region }}{%- endif -%}
+                    .
+                </p>
                 <p>
-                    In 2019/20 the club are playing in the 
-                        <a href="/league/{{ club.league.name | slug }}">{{ club.league.name }}</a>.
+                    In 2019/20 the club are playing in 
+                        <a href="/league/{{club.division.league.name | slug}}/{{ club.division.name | slug }}">{{ club.division.name }}</a>
+                        of the <a href="/league/{{club.division.league.name | slug}}">{{club.division.league.name}}</a>.
                 </p>
             </div>
             <div class="col-4 text-left">
