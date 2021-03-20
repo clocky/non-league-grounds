@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/clocky/nonleaguegrounds#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^0.10.0",
+    "@11ty/eleventy": "^0.12.1",
     "dotenv": "^8.2.0",
     "node-fetch": "^2.6.1",
     "pretty": "^2.0.0"
