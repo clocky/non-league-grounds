@@ -11,6 +11,8 @@ pagination:
   size: 1
   alias: club
 permalink: club/{{ club.orgname | slug }}/index.html
+eleventyComputed:
+    title: "{{ club.orgname }}"
 ---
     <div class="container-fluid">
         <div class="row">

@@ -13,29 +13,21 @@ async function getAllLeagues() {
       headers: {
         "Content-Type": "application/json",
         accept: "application/json",
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify({
         query: `{
-          allLeagues(
-            first: ${recordsPerQuery},
-            skip: ${recordsToSkip},
-            orderBy: _createdAt_DESC,
-            filter: {
-              _status: {eq: published}
-            }
-          )
-          {
+          allLeagues(orderBy: level_ASC, filter: { _status: {eq: published}}) {
             id
             name
             sponsor
-            division {
+            divisions {
               id
               name
             }
           }
-        }`
-      })
+        }`,
+      }),
     });
     const response = await dato.json();
     leagues = response.data.allLeagues;

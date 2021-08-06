@@ -10,24 +10,27 @@ map:
 ---
 
 <div class="container mt-4">
-    <div class="row">
-        {% for club in clubs %}
-            <div class="col-lg-4 mb-4">
-                <div class="card">
-                        <img class="card-img-top"
-                            src="{{ map.api }}{{ club.stadium.geo.latitude }},{{ club.stadium.geo.longitude }}/{{ map.zoom }}?mapSize={{ map.width }},{{ map.height }}&format={{format}}&key={{bing.api}}" 
-                        />
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            {{ club.orgname }}
-                        </h5>
-                        <p class="card-text text-secondary">
-                            {{ club.stadium.orgunit }}
-                        </p>
-                        <a href="/club/{{ club.orgname | slug }}" class="btn btn-primary">Open</a>
-                    </div>
-                </div>
+    {% for league in leagues %}
+        <div class="row">
+            <div class="col">
+                <h2 id="{{ league.name | slug }}">
+                    <span class="sponsor">{{ league.sponsor }}</span> {{ league.name }}
+                </h2>
+                {% for division in league.divisions %}
+                    <h3 class="h4">{{ division.name }}</h3>
+                    <ul>
+                    {% for club in clubs %}
+                        {% if club.division.id == division.id %}
+                        <li>
+                            <a href="/club/{{ club.orgname | slug }}">
+                                {{ club.orgname }}
+                            </a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                    </ul>
+                {% endfor %}
             </div>
-        {% endfor %}
-    </div>
+        </div>
+    {% endfor %}
 </div>

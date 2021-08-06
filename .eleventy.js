@@ -1,9 +1,9 @@
-require('dotenv').config();
-const pretty = require('pretty');
+require("dotenv").config();
+const pretty = require("pretty");
 
-module.exports = function(eleventyConfig) {
-  eleventyConfig.addTransform("pretty", function(content, outputPath) {
-    if( outputPath.endsWith(".html") ) {
+module.exports = function (eleventyConfig) {
+  eleventyConfig.addTransform("pretty", function (content, outputPath) {
+    if (outputPath.endsWith(".html")) {
       let prettified = pretty(content, {
         ocd: true,
       });
@@ -11,12 +11,9 @@ module.exports = function(eleventyConfig) {
     }
     return content;
   });
-  
+
   return {
-    templateFormats: [
-        "md",
-        "njk"
-    ],
+    templateFormats: ["md", "njk"],
     pathPrefix: "/",
     htmlTemplateEngine: "njk",
     passthroughFileCopy: true,
@@ -24,7 +21,7 @@ module.exports = function(eleventyConfig) {
       input: "src",
       includes: "_includes",
       data: "_data",
-      output: "_site"
-    }
-  } 
-}
+      output: "_site",
+    },
+  };
+};
