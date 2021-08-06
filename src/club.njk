@@ -22,7 +22,7 @@ eleventyComputed:
                     {% set key = 'key=' + bing.api %}
                     {% set location = club.stadium.geo.latitude + ',' + club.stadium.geo.longitude %}
                     {% for breakpoint in [1200, 992, 768, 576] %}
-                        {% set height = (breakpoint / 27) * 9 %}
+                        {% set height = (breakpoint / 48) * 9 %}
                         {% set mapSize = 'mapSize=' + breakpoint + ',' + height | round %}
                         {%- set url -%}{{ map.api }}/{{location}}/{{map.zoom}}/?{{mapSize}}&{{format}}&{{key}}{%- endset -%}
                         <source 
@@ -39,7 +39,7 @@ eleventyComputed:
     </div>
     
     <div class="container">
-        <div class="row mt-4">
+        <div class="row mt-5">
             <div class="col-8 bg-white">
                 <h1>{{ club.orgname }}</h1>
             </div>
@@ -54,22 +54,38 @@ eleventyComputed:
                     .
                 </p>
                 <p>
-                    In 2019/20 the club are playing in 
+                    In 2019/20 the club are playing in the
                         <a href="/league/{{club.division.league.name | slug}}/{{ club.division.name | slug }}">{{ club.division.name }}</a>
                         of the <a href="/league/{{club.division.league.name | slug}}">{{club.division.league.name}}</a>.
                 </p>
             </div>
             <div class="col-4 text-left">
                 <address class="text-secondary">
-                    {{ club.stadium.orgunit }}<br />
+                    {% if club.stadium.orgunit %}
+                        <strong>{{ club.stadium.orgunit }}</strong><br />
+                    {% endif %}
                     {% if club.stadium.locality %}
                         {{ club.stadium.locality | upper }}<br />
                     {% endif %}
-                    {{ club.stadium.region }}<br />
+                    {% if club.stadium.region %}
+                        {{ club.stadium.region }}<br />
+                    {% endif %}
                     {% if club.stadium.postalcode %}
                         {{club.stadium.postalcode | upper }}
                     {% endif %}
                 </address>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-12">
+                <h2>Maps</h2>
+                <ul>
+                    {% set lat = club.stadium.geo.latitude | round(6) %}
+                    {% set lon = club.stadium.geo.longitude | round(6) %}
+                    {% set query = club.orgname + " FC" %}
+                    <li>
+                        <a href="https://maps.apple.com/?q={{query | urlencode }}&sll={{lat}},{{lon}}&t=m">Apple Maps</a>
+                    </li>
             </div>
         </div>
     </div>
